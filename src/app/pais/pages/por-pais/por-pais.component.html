@@ -16,9 +16,11 @@
 </div>
 <hr />
 
-<div class="alert alert-danger" *ngIf="hayError">No se encontró nada con el término '{{termino}}'</div>
+<div class="alert alert-danger" *ngIf="hayError">
+  No se encontró nada con el término '{{ termino }}'
+</div>
 
-<div *ngIf="!hayError" class="row">
+<div *ngIf="paises.length > 0" class="row">
   <div class="col">
     <table class="table table-hover">
       <thead>
@@ -31,13 +33,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Bandera</td>
-          <td>Nombre</td>
-          <td>123456</td>
+        <tr *ngFor="let pais of paises; let i = index">
+          <td>{{ i + 1 }}</td>
+          <img
+            [src]="pais.flags.svg"
+            [alt]="pais.name.common"
+            class="small-flag"
+          />
+          <td>{{ pais.name.common }}</td>
+          <td>{{ pais.population | number }}</td>
           <td>
-            <a href="/pais/cri">ver...</a>
+            <a [routerLink]="['/pais', pais.name.common]">ver...</a>
           </td>
         </tr>
       </tbody>

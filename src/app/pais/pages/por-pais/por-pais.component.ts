@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/pais-interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent {
   termino: string = '';
-  hayError: boolean = false
-
+  hayError: boolean = false;
+  paises: Country[] = [];
+ 
   constructor(private PaisService: PaisService) {}
 
   buscar() {
@@ -18,9 +20,11 @@ export class PorPaisComponent {
     //.subcribe() es necesario xq es un observable
     this.PaisService.buscarPais(this.termino).subscribe((paises) => {
       console.log(paises);
+      this.paises = paises
     },(err)=>{
       console.log('Error')
       this.hayError = true
+      this.paises = []
     });
   }
 }
