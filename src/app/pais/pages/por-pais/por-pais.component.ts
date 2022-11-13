@@ -16,8 +16,8 @@ export class PorPaisComponent {
     this.hayError = false
     console.log(this.termino);
     //.subcribe() es necesario xq es un observable
-    this.PaisService.buscarPais(this.termino).subscribe((resp) => {
-      console.log(resp);
+    this.PaisService.buscarPais(this.termino).subscribe((paises) => {
+      console.log(paises);
     },(err)=>{
       console.log('Error')
       this.hayError = true
