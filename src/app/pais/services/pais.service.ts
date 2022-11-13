@@ -29,5 +29,13 @@ export class PaisService {
 
   }
 
+  getPAisParam( id: string ): Observable<Country> {
+
+    const url = `${ this._apiUrlCapital }/alpha/${ id }`
+
+    return this.http.get<Country>( url )
+
+  }
+
 
 }
