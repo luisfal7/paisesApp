@@ -14,11 +14,12 @@ export class PorPaisComponent {
  
   constructor(private PaisService: PaisService) {}
 
-  buscar() {
+  buscar( termino: string ) {
     this.hayError = false
-    console.log(this.termino);
+    this.termino = termino
+
     //.subcribe() es necesario xq es un observable
-    this.PaisService.buscarPais(this.termino).subscribe((paises) => {
+    this.PaisService.buscarPais(termino).subscribe((paises) => {
       console.log(paises);
       this.paises = paises
     },(err)=>{
