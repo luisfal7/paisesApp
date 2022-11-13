@@ -20,7 +20,7 @@ export interface Country {
     landlocked:   boolean;
     borders:      string[];
     area:         number;
-    demonyms:     Demonyms;
+    demonym:     Demonyms;
     flag:         string;
     maps:         Maps;
     population:   number;
