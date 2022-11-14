@@ -21,6 +21,7 @@ export interface Country {
     borders:      string[];
     area:         number;
     demonym:     Demonyms;
+    alpha2Code:   string;
     flag:         string;
     maps:         Maps;
     population:   number;
